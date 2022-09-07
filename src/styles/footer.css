@@ -1,0 +1,40 @@
+.f-container {
+  padding: 20px 15px;
+}
+
+.f-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.f-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.f-col:first-child img {
+  width: 250px;
+  margin-bottom: 20px;
+}
+
+.f-col:first-child p {
+  text-align: center;
+}
+
+.f-col:nth-child(2) h2,
+.f-col:nth-child(3) h2,
+.f-col:last-child h2 {
+  margin-bottom: 43px;
+}
+
+.f-col:nth-child(2) ul li a,
+.f-col:nth-child(3) ul li a{
+color: #001e28;
+}
+
+.f-col:nth-child(2) ul li a:hover,
+.f-col:nth-child(3) ul li a:hover{
+color: #ff0000;
+}
