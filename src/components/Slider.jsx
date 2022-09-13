@@ -3,10 +3,11 @@ import {
   faArrowCircleRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
-import { sliderItems } from "../data";
+// import { sliderItems } from "../data";
 import "../styles/slider.css";
+import axios from "axios";
 
 const Slider = () => {
   const [sliderIndex, setSliderIndex] = useState(0);
@@ -19,13 +20,27 @@ const Slider = () => {
     }
   };
 
+  const [slider, setSlider] = useState([]); //===================================
+
+  useEffect(() => {
+    const fecthData = async () => {
+      const result = await axios.get("/api/slider");
+      setSlider(result.data);
+    };
+    fecthData();
+  }, []);
+
   return (
     <div className="s-container">
       <div className="s-arrow left" onClick={() => handleClick("left")}>
         <FontAwesomeIcon icon={faArrowCircleLeft} />
       </div>
-      <div className="wrapper" sliderIndex={sliderIndex} style={{transform:`translateX(${sliderIndex * -100}vw)`}}>
-        {sliderItems.map((item) => (
+      <div
+        className="wrapper"
+        sliderIndex={sliderIndex}
+        style={{ transform: `translateX(${sliderIndex * -100}vw)` }}
+      >
+        {slider.map((item) => (
           <div className="slide" key={item._id}>
             <div className="img-container">
               <img src={item.image} className="s-img" alt="" />
@@ -40,10 +55,9 @@ const Slider = () => {
   );
 };
 
-export default Slider
+export default Slider;
 
-
-  /* <div className="slide">
+/* <div className="slide">
   <div className="img-container">
     <img src="/images/slider/2.jpg" alt="" className="s-img" />
   </div>
@@ -53,4 +67,3 @@ export default Slider
     <img src="/images/slider/1.jpg" alt="" className="s-img" />
   </div>
 </div> */
-

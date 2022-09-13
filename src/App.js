@@ -7,6 +7,7 @@ import Contact from "./pages/Contact.jsx";
 import Login from "./pages/Login.jsx";
 import Wish from "./pages/Wish.jsx";
 import Cart from "./pages/Cart.jsx";
+import ProductScreen from "./pages/ProductScreen";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/product/:slug" element={<ProductScreen />} />
           <Route path="/login" element={<Login />} />
           <Route path="/wish" element={<Wish />} />
           <Route path="/cart" element={<Cart />} />

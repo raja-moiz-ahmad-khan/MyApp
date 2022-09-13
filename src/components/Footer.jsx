@@ -56,6 +56,9 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <div className="f-copyrow">
+        <p>2022, All Rights Reserved. Powered by Moiz Ahmad </p>
+      </div>
     </div>
   );
 };
